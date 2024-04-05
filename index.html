@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Play DeadGuess - an exciting game based on the Deadpool universe! Can you guess who the randomly selected character is? Test your knowledge of Deadpool's heroes, villains, and allies in this addictive guessing game. Hundreds of characters are waiting for you to guess. Try it now!">
+    <title>Deadguesser</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="site-header">
+            <div class="title">
+                <h1><span class="title__h1Color">Dead</span>guesser.</h1>
+                <p class="title__info">Guess the characters from the <strong>Deadpool universe</strong>
+                    <span class="title__info-lighter">considered: Deadpool (2016), Deadpool 2 (2018)</span>
+                <p class="title__info-copyright">&copy; <span class="footer__year"></span> Deadguesser</p>
+                </p>
+            </div>
+            <div class="line"></div>
+            <img src="./hero-img.png" alt="" aria-hidden="true" class="hero-img">
+        </header>
+        <main>
+            <div class="guess">
+                <p class="guess__info-text">Type the character name
+                    <a href="characterList.txt" target="_blank" class="link">(character list)</a>
+                    and press Enter or click the right arrow to try to guess it
+                </p>
+                <div class="guess__nickname">
+                    <input type="text" placeholder="type character's nickname" class="guess__nickname-input">
+                    <button class="guess__nickname-btn" onclick="void(0)">
+                        <img src="./arrow-right-circle.svg" alt="" class="guess__nickname-arrow" aria-hidden="true">
+                    </button>
+                    <p class="guess__info-text guess__info-text--second">Character not found !!!</p>
+                </div>
+            </div>
+            <div class="game">
+                <div class="game__row game__header">
+                    <div class="game__main-cell">Name:</div>
+                    <div class="game__main-cell">Gender:</div>
+                    <div class="game__main-cell">Species:</div>
+                    <div class="game__main-cell">Range Type:</div>
+                    <div class="game__main-cell">Membership:</div>
+                    <div class="game__main-cell">Part Movie:</div>
+                </div>
+                <!-- <div class="game__row">
+                    <div class="game__cell">Deadpool</div>
+                    <div class="game__cell true">Male</div>
+                    <div class="game__cell true">Mutant</div>
+                    <div class="game__cell true">Ranged / Melee</div>
+                    <div class="game__cell false">None</div>
+                    <div class="game__cell nearly">Deadpool 1 / 2</div>
+                </div> -->
+            </div>
+        </main>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

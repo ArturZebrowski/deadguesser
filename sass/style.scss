@@ -1,0 +1,350 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	background: rgb(169, 169, 175); /* fallback for old browsers */
+	background: radial-gradient(
+		circle,
+		rgb(192, 189, 189) 0%,
+		rgb(169, 169, 175) 50%,
+		rgb(115, 115, 119) 100%
+	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	font-family: sans-serif;
+	color: #333;
+}
+
+.wrapper {
+	margin: 0 auto;
+	max-width: 800px;
+	width: 100%;
+}
+
+.site-header {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin: 2em 0 5em;
+
+	.title {
+		text-align: center;
+		font-size: 1.5rem;
+
+		&__h1Color {
+			color: #c53843;
+		}
+
+		&__info {
+			margin-top: 0.5em;
+			font-size: 1.2rem;
+
+			&-lighter {
+				display: block;
+				font-size: 0.9rem;
+				font-weight: lighter;
+				font-style: italic;
+			}
+
+			&-copyright {
+				font-size: 1rem;
+				text-align: center;
+			}
+		}
+	}
+
+	.line {
+		width: 1px;
+		height: 100px;
+		background-color: #333;
+	}
+
+	.hero-img {
+		width: 100px;
+		height: 100px;
+	}
+}
+
+.guess {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	&__info-text {
+		margin: 0.5em;
+		padding: 0 1em;
+		font-size: 1rem;
+		text-align: center;
+		order: 2; // I want it to read this information for screen readers first
+
+		.link {
+			color: #c53843;
+			text-decoration: none;
+			font-weight: bold;
+			transition: color 2s;
+			animation: pulse-color 2s infinite;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+
+		&--second {
+			position: absolute;
+			top: 150%;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 250px;
+			font-size: 1.2rem;
+			font-weight: bold;
+			color: rgb(189, 39, 144);
+			opacity: 0;
+		}
+	}
+
+	.active {
+		opacity: 1;
+	}
+
+	&__nickname {
+		position: relative;
+		display: flex;
+		align-items: center;
+		height: 45px;
+
+		&-input {
+			max-width: 200px;
+			padding: 0 1.6rem;
+			margin-right: -0.1em;
+			height: 100%;
+			border: 1px solid transparent;
+			border-top-left-radius: 20px;
+			outline: none;
+			background: #4e4e4e;
+			color: #e4e4e4;
+			transition: background 0.3s;
+
+			&:focus {
+				background: #5e5d5d;
+			}
+		}
+
+		&-btn {
+			padding: 0 1.6rem;
+			margin-left: -0.1em;
+			height: 100%;
+			background-color: #c53843;
+			border: 1px solid transparent;
+			border-bottom-right-radius: 20px;
+			color: #dfdfdf;
+			text-transform: uppercase;
+			font-weight: bold;
+			transition: background-color 0.3s;
+			cursor: pointer;
+
+			&:active {
+				background-color: #f1707b;
+				outline: none;
+			}
+		}
+
+		&-arrow {
+			transform: translateX(-2px);
+			transition: transform 0.3s, color 0.3s;
+
+			&:hover {
+				transform: translateX(0);
+			}
+		}
+	}
+}
+
+.game {
+	width: 100%;
+	margin-top: 6em;
+	text-align: center;
+
+	&__row {
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		margin-bottom: 1em;
+		color: #dfdfdf;
+	}
+
+	&__header {
+		font-size: 0.9rem;
+		font-weight: bold;
+		color: #4e4e4e;
+		opacity: 0;
+	}
+
+	&__main-cell {
+		position: relative;
+		padding: 0.8em;
+		margin-bottom: 1em;
+
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			height: 2px;
+			width: 75%;
+			background-color: #c53843;
+		}
+	}
+
+	&__cell {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 1em;
+		font-size: 0.9rem;
+
+		&:first-child {
+			text-align: center;
+			border-right: 2px solid #333;
+			font-weight: bold;
+			letter-spacing: 1.5px;
+			color: #333;
+		}
+	}
+}
+
+.true {
+	background-color: rgb(29, 107, 29);
+}
+.false {
+	background-color: rgb(168, 27, 27);
+}
+.nearly {
+	background-color: rgb(148, 81, 26);
+}
+
+.congratulations {
+	margin-top: 3em;
+	text-align: center;
+	font-size: 2rem;
+	color: white;
+}
+
+@keyframes pulse-color {
+	0% {
+		color: #c53843;
+	}
+
+	10% {
+		color: #f1707b;
+	}
+
+	20% {
+		color: #c53843;
+	}
+}
+
+@media (min-width: 576px) {
+	.site-header {
+		.title {
+			font-size: 2.2rem;
+
+			&__info {
+				font-size: 1.7rem;
+
+				&-lighter {
+					font-size: 1.1rem;
+				}
+			}
+		}
+
+		.line {
+			height: 150px;
+		}
+
+		.hero-img {
+			width: 150px;
+			height: 150px;
+		}
+	}
+	.guess {
+		.guess-nickname-input {
+			max-width: 350px;
+		}
+	}
+
+	.game {
+		&__main-cell {
+			font-size: 1.4rem;
+		}
+
+		&__cell {
+			font-size: 1.2rem;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.site-header {
+		.title {
+			font-size: 2.6rem;
+
+			&__info {
+				font-size: 2.1rem;
+
+				&-lighter {
+					font-size: 1.4rem;
+				}
+
+				&-copyright {
+					margin-top: 0.9em;
+					font-size: 1.2rem;
+				}
+			}
+		}
+
+		.line {
+			height: 200px;
+		}
+
+		.hero-img {
+			width: 200px;
+			height: 200px;
+		}
+	}
+	.main {
+		.guess-nickname-input {
+			max-width: 400px;
+		}
+	}
+
+	.guess {
+		&__info-text {
+			font-size: 1.4rem;
+
+			&--second {
+				font-size: 1.6rem;
+			}
+		}
+
+		&__nickname {
+			&-input {
+				min-width: 400px;
+			}
+		}
+	}
+
+	.game {
+		&__main-cell {
+			font-size: 1.6rem;
+		}
+
+		&__cell {
+			font-size: 1.4rem;
+		}
+	}
+}
